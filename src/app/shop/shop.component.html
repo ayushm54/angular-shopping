@@ -1,0 +1,11 @@
+<div class="collection-preview" *ngFor="let collection of collections | keyvalue">
+    <h1 class="title" routerLink='/collection/{{collection.value.title}}'>
+      {{collection.key}}
+    </h1>
+    <div class="preview">
+        <div fxLayout="row wrap" fxLayout.lt-sm="column"  fxLayoutAlign="flex-start" fxLayoutGap="10px grid">
+            <app-collection-item fxFlex.lt-sm="100%"
+            *ngFor="let item of collection.value.items | slice:0:4" [collectionItem]="item"></app-collection-item>
+        </div>
+    </div>
+</div>

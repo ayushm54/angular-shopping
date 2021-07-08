@@ -1,0 +1,24 @@
+<div class="signin">
+    <h2 className="title">I already have an account</h2>
+    <span style="padding-bottom: 15px;">Sign in with your email and password</span>
+    <form #signInForm="ngForm" (ngSubmit)="signIn(signInForm)">
+        <mat-form-field class="input-field">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Ex. pat@example.com" ngModel required name="email">
+        </mat-form-field>
+        <mat-form-field class="input-field">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput ngModel required name="password">
+        </mat-form-field>
+        <div class="buttons">
+            <button type="submit" class="custom-button" [disabled]="!signInForm.valid">Sign In</button>
+            <button type="button" class=" google-sign-in custom-button" (click)="signInWithGoogle()">
+                <i class="fa fa-google"></i>
+                Sign In With Google
+            </button>
+        </div>
+    </form>
+
+    <app-spinner *ngIf="isLoading"></app-spinner>
+
+</div>

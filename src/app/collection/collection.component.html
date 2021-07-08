@@ -1,0 +1,7 @@
+<div>
+    <h1 class="title">{{title}}</h1>
+    <div class="collection" fxLayout="row wrap" fxLayout.lt-sm="column"  fxLayoutAlign="flex-start" fxLayoutGap="10px grid">
+        <app-collection-item fxFlex.lt-sm="100%"
+        *ngFor="let item of collectionItems" [collectionItem]="item"></app-collection-item>
+    </div>
+</div>

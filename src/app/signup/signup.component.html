@@ -1,0 +1,23 @@
+<div class="signUp">
+    <h2 class="title">I do not have an account</h2>
+    <span style="padding-bottom: 15px;">Sign up with your email and password</span>
+    <form #signUpForm="ngForm" (ngSubmit)="signUp(signUpForm)">
+        <mat-form-field class="input-field">
+            <mat-label>Display Name</mat-label>
+            <input type="text" matInput ngModel required name="name">
+        </mat-form-field>
+        <mat-form-field class="input-field">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Ex. pat@example.com" ngModel required name="email">
+        </mat-form-field>
+        <mat-form-field class="input-field">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput ngModel required name="password">
+        </mat-form-field>
+        <mat-form-field class="input-field">
+            <mat-label>Confirm Password</mat-label>
+            <input type="password" matInput ngModel required name="confirmPassword">
+        </mat-form-field>
+        <button type="submit" class="custom-button" style="float: right" [disabled]="!signUpForm.valid">Register</button>
+    </form>
+</div>
