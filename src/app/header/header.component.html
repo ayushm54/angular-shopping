@@ -4,8 +4,10 @@
         <a href="/shop" class="option">SHOP</a>
         <a href="/contact" class="option">CONTACT</a>
         <a href="/auth" class="option">SIGNIN</a>
-        <a><mat-icon [matBadge]="cartCount" aria-hidden="false" aria-label="Example home icon">shopping_bag</mat-icon></a>
+        <a><mat-icon [matBadge]="cartCount" aria-hidden="false" 
+            aria-label="Example home icon" (click)="toggleCartDropdown()">shopping_bag</mat-icon></a>
         <!-- <mat-icon [matBadge]="cartCount" aria-hidden="false" aria-label="Example home icon" style="padding-left: 5px">dark_mode</mat-icon>
         <mat-slide-toggle (change)="onDarkModeSwitched($event)"></mat-slide-toggle> -->
+        <app-cart-dropdown *ngIf="!cartHidden"></app-cart-dropdown>
     </div>
 </div>

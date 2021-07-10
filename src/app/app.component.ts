@@ -8,7 +8,6 @@ import { Component, Inject, Renderer2 } from '@angular/core';
 })
 export class AppComponent{
  
-  cartCount: any;
   constructor(@Inject(DOCUMENT) private document: Document,
               private renderer: Renderer2) {}
 

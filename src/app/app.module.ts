@@ -20,7 +20,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from "ngx-toastr";
 import { SpinnerComponent } from './spinner/spinner.component';
-
+import { CartDropdownComponent } from './cart-dropdown/cart-dropdown.component';
+import { CartItemComponent } from './cart-item/cart-item.component';
+import { AppStoreModule } from './store/app-store.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,9 @@ import { SpinnerComponent } from './spinner/spinner.component';
     SigninComponent,
     SignupComponent,
     AuthComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CartDropdownComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
       timeOut: 5000,
       positionClass: 'toast-top-center',
       preventDuplicates: true,
-    })
+    }),
+    AppStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

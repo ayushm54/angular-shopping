@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/index';
+import { AddItemToCart } from '../store/cart/cart.actions';
 @Component({
   selector: 'app-collection-item',
   templateUrl: './collection-item.component.html',
@@ -9,12 +11,12 @@ export class CollectionItemComponent implements OnInit {
 
   @Input() collectionItem: any;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
   }
 
   addItemToCart(item: any): void {
-    console.log(item);
+    this.store.dispatch(new AddItemToCart(this.collectionItem));
   }
 }

@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async signUp(form: NgForm){
+  async signUp(form: NgForm) {
     this.isLoading = true;
     if (!form.valid) {
       return;
@@ -28,17 +28,23 @@ export class SignupComponent implements OnInit {
     const confirmPassword = form.value.confirmPassword;
     const displayName = form.value.displayName;
 
-    if(password !== confirmPassword){
+    if (password !== confirmPassword) {
       this.notificationService.showError('Password and Confirm Passwords do not match!', 'Error');
       return;
     }
-    let user: any;
-    auth.createUserWithEmailAndPassword(email, password).then((res)=>{
-      console.log(res);
-      user =res;
-      
-    }).catch((err)=>{
-      this.notificationService.showError(err.message, 'Error');
-    });
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(email, password);
+
+      if (user) {
+        await createUserProfileDocument(user, { displayName });
+        this.notificationService.showSuccess('User created successfully!', 'Success');
+      } else {
+        this.notificationService.showError('Failed to create user', 'Error');
+      }
+      // clearing the form after creating the user
+      form.resetForm();
+    } catch (e) {
+      console.log(e);
     }
+  }
 }
