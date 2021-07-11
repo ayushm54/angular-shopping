@@ -23,6 +23,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { CartDropdownComponent } from './cart-dropdown/cart-dropdown.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { AppStoreModule } from './store/app-store.module';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutItemComponent } from './checkout-item/checkout-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,9 @@ import { AppStoreModule } from './store/app-store.module';
     AuthComponent,
     SpinnerComponent,
     CartDropdownComponent,
-    CartItemComponent
+    CartItemComponent,
+    CheckoutComponent,
+    CheckoutItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+<div class="checkout-page">
+  <div class="checkout-header">
+    <div class="header-block">
+      <span>Product</span>
+    </div>
+    <div class="header-block">
+      <span>Description</span>
+    </div>
+    <div class="header-block">
+      <span>Quantity</span>
+    </div>
+    <div class="header-block">
+      <span>Price</span>
+    </div>
+    <div class="header-block">
+      <span>Remove</span>
+    </div>
+  </div>
+  <div *ngFor="let item of cartItems" style="width: 100%">
+    <app-checkout-item [cartItem]="item"></app-checkout-item>
+  </div>
+  <div class="total">TOTAL: ${{ cartTotal }}</div>
+  <div class="test-warning">
+    *Please use the following test credit card for payments*
+    <br />
+    4242 4242 4242 4242 - Exp: Any future date - CVV: 123
+  </div>
+  <!-- <StripeCheckoutButton price={cartTotal} /> -->
+  <button (click)="makePayment()" [ngClass]="payButtonClass">Pay</button>
+</div>
+
+<app-spinner *ngIf="isLoading"></app-spinner>

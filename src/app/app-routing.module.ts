@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CollectionComponent } from './collection/collection.component';
 import { HomeComponent } from './home/home.component';
 import { ShopComponent } from './shop/shop.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path:"auth",
     component: AuthComponent,
+    pathMatch: 'full'
+  },
+  {
+    path:"checkout",
+    component: CheckoutComponent,
     pathMatch: 'full'
   },
   {

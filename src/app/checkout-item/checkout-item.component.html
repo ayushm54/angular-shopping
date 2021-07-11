@@ -1,0 +1,23 @@
+<div class="checkout-item">
+    <div class="image-container">
+      <img alt="item" [src]=cartItem.imageUrl />
+    </div>
+    <span class="name">{{cartItem.name}}</span>
+    <span class="quantity">
+      <i
+        class="fa fa-minus operator"
+        aria-hidden="true"
+        (click)="decrementItemQuantity()"
+      ></i>
+      <div class="value">{{cartItem.quantity}}</div>
+      <i
+        class="fa fa-plus operator"
+        aria-hidden="true"
+        (click)="incrementItemQuantity()"
+      ></i>
+    </span>
+    <span class="price">{{cartItem.price}}</span>
+    <div class="remove-button">
+      <i class="fa fa-trash" aria-hidden="true" (click)="clearItemFromCart()"></i>
+    </div>
+  </div>
